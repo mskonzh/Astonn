@@ -180,67 +180,6 @@ public class Main {
         }
         return array;
     }
- static class Employee {
-    private String fullName;
-    private String position;
-    private String email;
-    private String phoneNumber;
-    private double salary;
-    private int age;
-
-    // Конструктор
-    public Employee(String fullName, String position, String email, String phoneNumber, double salary, int age) {
-        this.fullName = fullName;
-        this.position = position;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.salary = salary;
-        this.age = age;
-    }
-
-    // Метод для вывода информации о сотруднике
-    public void printInfo() {
-        System.out.println("ФИО: " + fullName);
-        System.out.println("Должность: " + position);
-        System.out.println("Email: " + email);
-        System.out.println("Телефон: " + phoneNumber);
-        System.out.println("Зарплата: " + salary);
-        System.out.println("Возраст: " + age);
-    }
 }
-
-// Класс "Парк" с внутренним классом "Аттракцион"
-static class Park {
-    private String parkName;
-
-    public Park(String parkName) {
-        this.parkName = parkName;
-    }
-
-    // Внутренний класс для аттракционов
-    public class Attraction {
-        private String attractionName;
-        private String workingHours;
-        private double cost;
-
-        public Attraction(String attractionName, String workingHours, double cost) {
-            this.attractionName = attractionName;
-            this.workingHours = workingHours;
-            this.cost = cost;
-        }
-
-        public void printAttractionInfo() {
-            System.out.println("Аттракцион: " + attractionName);
-            System.out.println("Часы работы: " + workingHours);
-            System.out.println("Стоимость: " + cost);
-        }
-    }
-
-    // Метод для создания аттракциона
-    public Attraction createAttraction(String name, String hours, double cost) {
-        return new Attraction(name, hours, cost);
-    }
-}
-    }
 
 
