@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         printFruits();
@@ -15,38 +17,63 @@ public class Main {
         System.out.println(isLeapYear(2024));
         System.out.println(isLeapYear(100));
         System.out.println(isLeapYear(400));
+
+        String[] words = {"apple", "banana", "apple", "orange", "banana", "grape", "orange", "apple"};
+
+        UniqueWords uniqueWords = new UniqueWords();
+        uniqueWords.printUniqueWords(words);
+
+        Phonebook phonebook = new Phonebook();
+
+        phonebook.add("Ivanov", "123456");
+        phonebook.add("Petrov", "654321");
+        phonebook.add("Ivanov", "789123");
+
+        List<String> ivanovNumbers = phonebook.get("Ivanov");
+        System.out.println("Номера для Иванов: " + ivanovNumbers);
+
         int[] array = {1, 1, 0, 0, 1, 1, 0, 0};
-        flipArray(array);
+        ArrayUtils.flipArray(array);
         for (int i : array) {
             System.out.print(i + " ");
         }
+
+        System.out.println();
+
         int[] array1 = new int[100];
-        fillArray(array1);
+        ArrayUtils.fillArray(array1);
         for (int i : array1) {
             System.out.print(i + " ");
         }
+
+        System.out.println();
+
         int[] array2 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-        processArray(array2);
+        ArrayUtils.processArray(array2);
         for (int i : array2) {
             System.out.print(i + " ");
         }
+
+        System.out.println();
+
         int n = 5;
         int[][] squareArray = new int[n][n];
-        fillDiagonals(squareArray);
-        System.out.println();
+        ArrayUtils.fillDiagonals(squareArray);
         for (int[] row : squareArray) {
             for (int elem : row) {
                 System.out.print(elem + " ");
             }
             System.out.println();
         }
+
         int len = 10;
         int initialValue = 7;
-        int[] array3 = createArray(len, initialValue);
-        System.out.println();
+        int[] array3 = ArrayUtils.createArray(len, initialValue);
         for (int i : array3) {
             System.out.print(i + " ");
         }
+
+        System.out.println();
 
         Dog dog1 = new Dog("Бобик");
         Cat cat1 = new Cat("Мурзик");
@@ -54,7 +81,6 @@ public class Main {
 
         Bowl bowl = new Bowl(15);
 
-// Тестируем действия
         dog1.run(400);
         dog1.swim(5);
 
@@ -67,7 +93,6 @@ public class Main {
         bowl.addFood(20);
         cat2.eat(bowl, 10);
 
-// Выводим количество созданных объектов
         System.out.println("Всего собак: " + Dog.dogCount);
         System.out.println("Всего котов: " + Cat.catCount);
 
@@ -87,7 +112,7 @@ public class Main {
         };
 
         try {
-            int result = processArray(testArray);
+            int result = ProcessArray.processArray(testArray);
             System.out.println("Сумма элементов массива: " + result);
         } catch (MyArraySizeException e) {
             System.out.println("Ошибка размера массива: " + e.getMessage());
@@ -102,7 +127,6 @@ public class Main {
         System.out.println("Apple");
     }
 
-    // 2 задание/*
     public static void checkSumSign() {
         int a = 2;
         int b = 3;
@@ -114,60 +138,40 @@ public class Main {
         }
     }
 
-    // 3 задание/*
     public static void printColor() {
         int value = 45;
         if (value <= 0) {
             System.out.println("Красный");
-        }
-        if (value > 0 && value <= 100) {
+        } else if (value > 0 && value <= 100) {
             System.out.println("Жёлтый");
         } else {
             System.out.println("Зелёный");
         }
-
     }
 
-    // 4 задание /*
-    public static void compareNumbers() {
-        int a = 5;
-        int b = 6;
-        if (a >= b) {
-            System.out.println("a >= b");
-        } else {
-            System.out.println("a < b");
-        }
-    }
-
-    // 5  /*
     public static boolean sumNumbers(int a, int b) {
         int sum = a + b;
         return sum >= 10 && sum <= 20;
     }
 
-    // 6 /*
     public static void checkNumber(int number) {
         if (number >= 0) {
             System.out.println("Положительное");
         } else {
             System.out.println("Отрицательное");
         }
-
     }
 
-    // 7 /*
     public static boolean isNegative(int number) {
         return ++number <= 0;
     }
 
-    // 8 /*
     public static void printStrings(String str, int times) {
         for (int i = 0; i < times; i++) {
             System.out.println(str);
         }
     }
 
-    // 9 /*
     public static boolean isLeapYear(int year) {
         if (year % 4 == 0) {
             if (year % 100 == 0) {
@@ -177,97 +181,6 @@ public class Main {
         }
         return false;
     }
-
-    // 10 /*
-    public static void flipArray(int[] array2) {
-        for (int i = 0; i < array2.length; i++) {
-            array2[i] = array2[i] == 0 ? 1 : 0;
-        }
-    }
-
-    // 11 /*
-    public static void fillArray(int[] array1) {
-        for (int i = 0; i < array1.length; i++) {
-            array1[i] = i + 1;
-        }
-    }
-
-    // 12 /*
-    public static void processArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < 6) {
-                array[i] *= 2;
-            }
-        }
-    }
-
-    // 13 /*
-    public static void fillDiagonals(int[][] array) {
-        for (int i = 0; i < array.length; i++) {
-            array[i][i] = 1;
-        }
-    }
-
-    // 14 /*
-    public static int[] createArray(int len, int initialValue) {
-        int[] array = new int[len];
-        for (int i = 0; i < len; i++) {
-            array[i] = initialValue;
-        }
-        return array;
-    }
-    public static int processArray(String[][] array) throws MyArraySizeException, MyArrayDataException {
-        if (array.length != 4) {
-            throw new MyArraySizeException("Массив должен быть размером 4x4");
-        }
-
-        for (int i = 0; i < array.length; i++) {
-            if (array[i].length != 4) {
-                throw new MyArraySizeException("Массив должен быть размером 4x4");
-            }
-        }
-
-        int sum = 0;
-
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
-                try {
-                    sum += Integer.parseInt(array[i][j]);
-                } catch (NumberFormatException e) {
-                    throw new MyArrayDataException("Ошибка в ячейке [" + i + "][" + j + "]: " + array[i][j]);
-                }
-            }
-        }
-
-        return sum;
-    }
-    }
-
-    class Bowl {
-        private int foodAmount;
-
-        public Bowl(int foodAmount) {
-            this.foodAmount = foodAmount;
-        }
-
-        public boolean decreaseFood(int amount) {
-            if (foodAmount >= amount) {
-                foodAmount -= amount;
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        public void addFood(int amount) {
-            foodAmount += amount;
-            System.out.println("Добавлено " + amount + " еды. Теперь в миске " + foodAmount + " еды.");
-        }
-
-        public int getFoodAmount() {
-            return foodAmount;
-        }
-
-    }
+}
 
 
