@@ -26,6 +26,15 @@ public class BlockTitleTest {
         String actualHeader = header.getText().replace("\n", " ");
         Assert.assertEquals(actualHeader,expectedTitle, "Заголовок страницы не совпадает!");
     }
+    @Test
+    public void testPaymentLogos() {
+        String[] expectedLogos = { "logo-MasterCard", "logo-Visa", "logo-Verified by Visa", "logo-MasterCard Secure Code","logo-Белкарт"};
+        for (String logo : expectedLogos) {
+            WebElement
+                    logoElement = driver.findElement(By.className("pay__partners"));
+            Assert.assertTrue(logoElement.isDisplayed(), "Логотип" + logo + "не отображается!");
+        }
+    }
 
     @AfterClass
     public void tearDown() {
