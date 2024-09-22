@@ -24,7 +24,7 @@ public class LinkTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
         try {
-            WebElement cookieCloseButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("cookie-agree")));
+            WebElement cookieCloseButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("cookie-agree"))); // Убедитесь, что селектор правильный
             cookieCloseButton.click();
         } catch (Exception e) {
         }
