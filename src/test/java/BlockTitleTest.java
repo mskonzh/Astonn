@@ -6,6 +6,8 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class BlockTitleTest {
     WebDriver driver;
@@ -28,7 +30,7 @@ public class BlockTitleTest {
     }
     @Test
     public void testPaymentLogos() {
-        String[] expectedLogos = { "logo-MasterCard", "logo-Visa", "logo-Verified by Visa", "logo-MasterCard Secure Code","logo-Белкарт"};
+        String[] expectedLogos = {"logo-MasterCard", "logo-Visa", "logo-Verified by Visa", "logo-MasterCard Secure Code", "logo-Белкарт"};
         for (String logo : expectedLogos) {
             WebElement
                     logoElement = driver.findElement(By.className("pay__partners"));
